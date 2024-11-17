@@ -29,5 +29,5 @@ jobs:
       - name: Run Django Tests
         
         run: | 
-          cd portfolio
+          cd mainportfolio
           python mainportfolio/manage.py runserver
