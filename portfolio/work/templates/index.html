@@ -1,0 +1,305 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Spotx Portfolio</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static "css/spotx.css" %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <style>
+        @font-face {
+            font-family: Peachy;
+            src: url('{% static "font/sugarpeachydemoblack-pkaeg.otf" %}');
+        }
+        body {
+            background-color: white;
+            backdrop-filter: blur(5px);
+        }
+        .peachy {
+            font-family: Peachy;
+            font-size: 100px;
+            color: #219C90;
+        }
+        .sidenav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px; 
+            width: 100%; 
+            padding-top: 15px;
+        }
+        
+        .navicon {
+            color:blue; 
+            height: 50px;
+            cursor: pointer;
+        }
+        .workbox-section {
+            display: none; 
+            justify-content: center; 
+            flex-wrap: wrap; 
+        }
+        
+        .workbox-section.active {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .workbox {
+            padding: 15px;
+            display: inline-block;
+            width: 400px;
+            height: 500px;
+            object-fit: fill;
+            overflow: hidden; 
+        }
+        
+        .workbox img {
+            width: 100%;
+            height: 100%;
+            object-fit: fit;
+            transition: transform 0.5s ease; 
+        }
+        
+        .workbox:hover img {
+            transform: scale(1.1); 
+        }
+        
+        @media (max-width: 768px) {
+            .peachy {
+                font-size: 50px;
+            }
+            .navicon {
+                height: 30px;
+            }
+            .workbox {
+                width: 100%;
+                height: auto;
+            }
+        }
+        video::-webkit-media-controls {
+            display: none !important;
+        }
+        
+        video::-moz-media-controls {
+            display: none !important;
+        }
+    </style>
+</head>
+<body style="background-image: url('{% static "img/webback.png" %}');" class="p-0">
+    <div class="sidenav pt-4 ps-5">
+        <a href="#poster" class="change-image pe-5" data-section="poster"><img class="navicon" src="{% static 'img/painting icon.png' %}" alt="Poster"></a>
+        <a href="#motion" class="change-image pe-5" data-section="motion"><img class="navicon" src="{% static 'img/motion-icon.png' %}" alt="Motion"></a>
+        <a href="#video" class="change-image pe-5" data-section="video"><img class="navicon" src="{% static 'img/video icon.png' %}" alt="Video"></a>
+        <a href="#website" class="change-image pe-5" data-section="website"><img class="navicon" src="{% static 'img/internet icon.png' %}" alt="Website"></a>
+        <a href="{% url 'work:enquiry' %}" ><img class="navicon" src="{% static 'img/contactus.png' %}" alt="enquiry"></a>
+    </div>
+
+    <div class="container">
+        <div class="container-fluid d-flex justify-content-center">
+            <h1 class="peachy">SPOTX PORTFOLIO</h1>
+        </div>
+        <div class="workbox-section active" id="poster">
+            <div class="workbox"><img src="{% static 'img/01.jpg' %}" alt="Poster Image 1"></div>
+            <div class="workbox"><img src="{% static 'img/02.jpg' %}" alt="Poster Image 2"></div>
+            <div class="workbox"><img src="{% static 'img/03.jpg' %}" alt="Poster Image 3"></div>
+            <div class="workbox"><img src="{% static 'img/04.jpg' %}" alt="Poster Image 4"></div>
+            <div class="workbox"><img src="{% static 'img/05.jpg' %}" alt="Poster Image 5"></div>
+            <div class="workbox"><img src="{% static 'img/06.jpg' %}" alt="Poster Image 6"></div>
+            <div class="workbox"><img src="{% static 'img/0333.jpeg' %}" alt="Poster Image 6"></div>
+            <div class="workbox"><img src="{% static 'img/poster01.jpeg' %}" alt="Poster Image 6"></div>
+            <div class="workbox"><img src="{% static 'img/poster02.jpeg' %}" alt="Poster Image 6"></div>
+            <div class="workbox"><img src="{% static 'img/poster03.jpeg' %}" alt="Poster Image 6"></div>
+            <div class="workbox"><img src="{% static 'img/poster04.jpeg' %}" alt="Poster Image 6"></div>
+            <div class="workbox"><img src="{% static 'img/poster06.jpeg' %}" alt="Poster Image 6"></div>
+            <div class="workbox"><img src="{% static 'img/poster07.jpeg' %}" alt="Poster Image 6"></div>
+            <div class="workbox"><img src="{% static 'img/poster08.jpeg' %}" alt="Poster Image 6"></div>
+            <div class="workbox"><img src="{% static 'img/samasposter.jpeg' %}" alt="Poster Image 6"></div>
+        </div>
+        <div class="workbox-section " id="motion">
+            <div class="workbox">
+                <video width="350" height="480" muted controls autoplay loop>
+                    <source src="{% static 'video/WhatsApp Video 2024-11-09 at 11.10.35.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+            <div class="workbox">
+                <video width="350" height="480" muted controls autoplay loop>
+                    <source src="{% static 'video/VIDHYARAMBAM MOTION.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+            <div class="workbox">
+                <video width="350" height="480" controls muted autoplay loop>
+                    <source src="{% static 'video/motion1.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+            <div class="workbox">
+                <video width="350" height="480" controls muted autoplay loop>
+                    <source src="{% static 'video/motion2.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+            <div class="workbox">
+                <video width="350" height="480" controls muted autoplay loop>
+                    <source src="{% static 'video/motion3.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+            <div class="workbox">
+                <video width="350" height="480" controls muted autoplay loop>
+                    <source src="{% static 'video/motion4.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+            <div class="workbox">
+                <video width="350" height="480" controls muted autoplay loop>
+                    <source src="{% static 'video/motion5.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+            <div class="workbox">
+                <video width="350" height="480" controls muted autoplay loop>
+                    <source src="{% static 'video/motion6.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+            <div class="workbox">
+                <video width="350" height="480" controls muted autoplay loop>
+                    <source src="{% static 'video/motion7.mp4' %}"  type="video/mp4">
+                </video>
+            </div>
+            <div class="workbox">
+                <video width="350" height="480" controls muted autoplay loop>
+                    <source src="{% static 'video/motion8.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+            <div class="workbox">
+                <video width="350" height="480" controls muted autoplay loop>
+                    <source src="{% static 'video/motion9.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+            <div class="workbox">
+                <video width="350" height="480" controls muted autoplay loop>
+                    <source src="{% static 'video/motion10.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="workbox">
+                <video width="350" height="480" controls muted autoplay loop>
+                    <source src="{% static 'video/motion11.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+            <div class="workbox">
+                <video width="350" height="480" controls muted autoplay loop>
+                    <source src="{% static 'video/motion12.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+            <div class="workbox">
+                <video width="350" height="480" controls muted autoplay loop>
+                    <source src="{% static 'video/motion13.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+            <div class="workbox">
+                <video width="350" height="480" controls muted autoplay loop>
+                    <source src="{% static 'video/motion14.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+            <div class="workbox">
+                <video width="350" height="480" controls muted autoplay loop>
+                    <source src="{% static 'video/motion15.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+            <div class="workbox">
+                <video width="350" height="480" controls muted autoplay loop>
+                    <source src="{% static 'video/motion16.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+            <div class="workbox">
+                <video width="350" height="480" controls muted autoplay loop>
+                    <source src="{% static 'video/motion17.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+            <div class="workbox">
+                <video width="350" height="480" controls muted autoplay loop>
+                    <source src="{% static 'video/motion18.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+        
+        </div>
+
+
+
+
+        <div class="workbox-section " id="video">
+            <div class="workbox">
+                <video width="350" height="480" controls muted autoplay loop>
+                    <source src="{% static 'video/IMG_6787-2.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+            <div class="workbox">
+                <video width="350" height="480" controls muted autoplay loop>
+                    <source src="{% static 'video/IMG_8471.MOV' %}" type="video/mp4">
+                </video>
+            </div>
+            <div class="workbox">
+                <video width="350" height="480" controls muted autoplay loop>
+                    <source src="{% static 'video/4k sep 24.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+            <div class="workbox">
+                <video width="350" height="480" controls muted autoplay loop>
+                    <source src="{% static 'video/IMG_9712.MOV' %}" type="video/mp4">
+                </video>
+            </div>
+            <div class="workbox">
+                <video width="350" height="480" controls muted autoplay loop>
+                    <source src="{% static 'video/saerrii 27 aug.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+            <div class="workbox">
+                <video width="350" height="480" controls muted autoplay loop>
+                    <source src="{% static 'video/jassid m new.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+            <div class="workbox">
+                <video width="350" height="480" controls muted autoplay loop>
+                    <source src="{% static 'video/mgc video new.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+            <div class="workbox">
+                <video width="350" height="480" controls muted autoplay loop>
+                    <source src="{% static 'video/md nov16.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+            <div class="workbox">
+                <video width="350" height="480" controls muted autoplay loop>
+                    <source src="{% static 'video/md new 15.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+            <div class="workbox">
+                <video width="350" height="480" controls muted autoplay loop>
+                    <source src="{% static 'video/md nov14.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        
+        <div class="workbox-section" id="website">
+            <a href="https://mediaspotacademy.com"><div class="workbox"><img src="{% static 'img/webmok.jpg' %}" alt="Website Image 1"></div></a>
+            <a><div></div></a>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.change-image').forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                const sectionId = this.getAttribute('data-section');
+        
+                document.querySelectorAll('.workbox-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+        
+                document.getElementById(sectionId).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+@font-face {
+    font-family: Peachy;
+    src: url('{% static "font/sugarpeachydemoblack-pkaeg.otf" %}');
+}
+.peachy
+{
+    font-family: Peachy;
+}

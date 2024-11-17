@@ -1,0 +1,206 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="">
+        <style>
+            .map-container {
+                position: relative;
+                width: 100vw;
+                height: 100vh;
+                overflow: hidden;
+            }
+            
+            /* Responsive Map */
+            .map-responsive {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+            
+            .map-responsive iframe {
+                width: 100%;
+                height: 100%;
+                border: 0;
+            }
+            
+            /* Overlay Form */
+            .form-overlay {
+                position: absolute;
+                top: 50%;
+                left: 25%;
+                transform: translate(-50%, -50%);
+                background-color: rgba(255, 255, 255, 0.9); /* White background with opacity */
+                padding: 30px;
+                max-width: 500px;
+                max-height: 500px;
+                width: 90%;
+                border-radius: 8px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                text-align: center;
+            }
+            
+            .header-text {
+                font-size: 24px;
+                font-weight: bold;
+            }
+            
+            .subheader-text, .description-text {
+                margin-bottom: 10px;
+            }
+            
+            
+            .map-frame {
+                width: 100%;
+                height: 100%;
+                border: none;
+            }
+            
+            /* Form Container */
+            .form-container {
+                width: 40%;
+                background-color: rgba(255, 255, 255, 0.455);
+                padding: 30px;
+                border-radius: 8px;
+                position: relative;
+                margin: 50px auto;
+                top: 10%;
+                z-index: 1;
+            }
+            
+            .header-text {
+                font-size: 20px;
+                color: black;
+                font-weight: 800;
+            }
+            
+            .subheader-text {
+                font-size: 15px;
+                color: #f60606;
+                font-weight: 800;
+            }
+            
+            .description-text {
+                font-size: 12px;
+                line-height: 1.5;
+                color: #242222;
+                margin-bottom: 20px;
+                display: block;
+            }
+            
+            input[type="text"],
+            input[type="email"],
+            input[type="number"],
+            input[type="tel"] {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 15px;
+                border: 2px solid black;
+                border-radius: 4px;
+                font-size: 14px;
+            }
+            #message{
+                border: 2px solid black;   
+            }
+            
+            #message:hover{
+                border: 3px solid black;   
+            }
+            
+            button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 3rem;
+            }
+            #bk{
+                background-image: url("{% static "img/Paper Airplane.gif" %}");
+                background-size: cover;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="map-container">
+            <div class="map-responsive">
+                <iframe 
+                    class="map-frame" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3912.85839775918!2d76.21398220747507!3d11.27181774982094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba63b418c805761%3A0xffa97333e67fe5f8!2sMediaspot%20Corporate%20Office!5e0!3m2!1sen!2sin!4v1730198298131!5m2!1sen!2sin"
+                    allowfullscreen
+                    loading="lazy">
+                </iframe>
+            </div>
+        
+            <div id="bk" class="form-overlay mt-5">
+                <h1 class="header-text">SpotX</h1>
+                <p class="subheader-text"></p>
+                <p class="description-text"></p>
+                
+                <form id="application-form">
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <input class="form-control" placeholder="Name:" type="text" id="name" name="name" aria-label="Name" required>
+                        </div>
+                        <div class="col-md-6">
+                            <input class="form-control" placeholder="Email:" type="email" id="email" name="email" aria-label="Email" required>
+                        </div>
+                        <div class="col-md-6">
+                            <input class="form-control" placeholder="Phone No:" type="tel" id="phone" name="phone" pattern="[0-9]{10}" aria-label="Phone Number" required>
+                        </div>
+                        <div class="col-12">
+                            <textarea class="form-control" placeholder="Message:" id="message" name="message" rows="5" aria-label="Message" required></textarea>
+                        </div>
+                        <div class="col-12">
+                            <button style="background-color: black; color: aliceblue;" class="btn w-100 py-3" type="submit">Send Message</button>
+                        </div>
+                    </div>
+                </form>
+        
+                <p id="status-message"></p>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js" integrity="sha384-ho+pPkk8K54B1UOPg5xKs3/FLRYswP5zM1so8WgpMo7e24hS7uHTFdH58u4Jk3G4" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
+        <script type="text/javascript">
+            (function(){
+                emailjs.init("njvyGvol3xprnFeBM");
+            })();
+        
+            document.getElementById('application-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+        
+                const statusMessage = document.getElementById('status-message');
+                statusMessage.innerText = 'Sending...';
+        
+                const serviceID = 'service_srswpgb';
+                const templateID = 'template_nddyc3k';
+        
+                const emailParams = {
+                    name: document.getElementById("name").value,
+                    email: document.getElementById("email").value,
+                    phone: document.getElementById("phone").value,
+                    message: document.getElementById("message").value
+                };
+        
+                emailjs.send(serviceID, templateID, emailParams)
+                .then(function(response) {
+                    statusMessage.innerText = 'Message sent successfully!';
+                    console.log('Email sent successfully:', response);
+                    document.getElementById('application-form').reset();
+                })
+                .catch(function(error) {
+                    statusMessage.innerText = 'Failed to send the message. Please try again later.';
+                    console.error('Email send error:', error);
+                });
+            });
+        </script>
+    </body>
+</html>
