@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-#w6h_yn49@dbuvygcd-)fd6vmapejt$jo&)57yk+ueyg&)tql(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["https://spotx-portfolio.onrender.com"]
+ALLOWED_HOSTS = ["spotx-portfolio.onrender.com"]
 
 
 # Application definition
