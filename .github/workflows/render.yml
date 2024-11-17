@@ -7,7 +7,7 @@ services:
     startCommand: gunicorn portfolio.wsgi:application
     envVars:
       - key: DJANGO_SETTINGS_MODULE
-        value: <project_name>.settings
+        value: portfolio.settings
       - key: SECRET_KEY
         value: your-secret-key
       - key: DEBUG
