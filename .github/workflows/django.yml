@@ -27,4 +27,4 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run Django Tests
-        run: python spotx-portfolio/mainportfolio/manage.py runserver
+        run: python mainportfolio/manage.py runserver
